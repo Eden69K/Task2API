@@ -11,13 +11,13 @@ type Config struct {
 	Server struct {
 		Port string `yaml:"port"`
 	} `yaml:"server"`
+	Database struct {
+		URL string `yaml:"url"`
+	} `yaml:"database"`
 	TargetAPI struct {
 		URL           string `yaml:"url"`
 		Authorization string `yaml:"authorization"`
 	} `yaml:"target_api"`
-	Auth struct {
-		Token string `yaml:"token"`
-	} `yaml:"auth"`
 }
 
 func LoadConfig(path string) (*Config, error) {

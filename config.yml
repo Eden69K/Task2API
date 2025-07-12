@@ -1,9 +1,9 @@
 server:
   port: "8080"
 
+database:
+  url: "postgres://postgres.zrgbcnmgekcqnhuruvfm:DdzntB3mSC2Q2Jd@aws-0-us-east-2.pooler.supabase.com:5432/postgres"
+
 target_api:
   url: "https://apiml.labhub.online/api/v1"
   authorization: "Bearer 0l62<EJi/zJx]a?"
-
-auth:
-  token: "0l62557"
