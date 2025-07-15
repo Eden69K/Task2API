@@ -38,3 +38,15 @@ project/
 |/predict/ferr|"age","gender","rdw","wbc","rbc","hgb","hct","mcv","mch","mchc","plt","neu","eos","bas","lym","mon","soe","crp"|Прогноз FERR(Ферритин)|
 |/predict/tg|"age","gender","rdw","wbc","rbc","hgb","hct","mcv","mch","mchc", "plt","neu","eos","bas","lym","mon","soe","chol","glu"|Прогноз TG(Триглицериды)|
 |/predict/hdl|"age","gender","rdw","wbc","rbc","hgb","hct","mcv","mch","mchc","plt","neu","eos","bas","lym","mon","soe","chol","glu"|Прогноз HDL(Холестерин липопротеинов высокой плотности)|
+
+## Установка
+```
+git clone https://github.com/Eden69K/Task2API.git
+cd Task2API
+```
+
+## Запуск
+```
+go build -o bin/Task2API cmd/app/main.go
+./bin/Task2API
+```
