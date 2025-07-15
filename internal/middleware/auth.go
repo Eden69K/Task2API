@@ -15,6 +15,8 @@ type AuthMiddleware struct {
 	logger    logger.Logger
 }
 
+//------------------------------------------------------------------------------------------
+
 func NewAuthMiddleware(tokenRepo *repository.TokenRepository, logger logger.Logger) *AuthMiddleware {
 	return &AuthMiddleware{
 		tokenRepo: tokenRepo,

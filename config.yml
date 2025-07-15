@@ -7,3 +7,12 @@ database:
 target_api:
   url: "https://apiml.labhub.online/api/v1"
   authorization: "Bearer 0l62<EJi/zJx]a?"
+
+rate_limit:
+  requests_per_second: 100
+
+logging:
+  filename: "logs/app.log"
+  max_size_mb: 10
+  max_backups: 5
+  max_age_days: 30

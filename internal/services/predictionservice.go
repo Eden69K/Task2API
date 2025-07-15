@@ -24,12 +24,16 @@ type PredictionService struct {
 	logger logger.Logger
 }
 
+//------------------------------------------------------------------------------------------
+
 func NewPredictionService(config TargetAPIConfig, logger logger.Logger) *PredictionService {
 	return &PredictionService{
 		config: config,
 		logger: logger,
 	}
 }
+
+//------------------------------------------------------------------------------------------
 
 func (s *PredictionService) PredictHBA1C(ctx context.Context, params url.Values) ([]byte, error) {
 	request, err := s.createHBA1CRequest(params)
@@ -79,6 +83,8 @@ func (s *PredictionService) PredictHDL(ctx context.Context, params url.Values) (
 	return s.sendRequest(ctx, request, s.config.URL+"/predict/hdl")
 }
 
+//------------------------------------------------------------------------------------------
+
 func (s *PredictionService) sendRequest(ctx context.Context, request interface{}, url string) ([]byte, error) {
 	requestBody, err := json.Marshal(request)
 	if err != nil {
@@ -119,6 +125,8 @@ func (s *PredictionService) sendRequest(ctx context.Context, request interface{}
 
 	return responseBody, nil
 }
+
+//------------------------------------------------------------------------------------------
 
 func (s *PredictionService) createHBA1CRequest(params url.Values) (*models.HBA1CRequest, error) {
 	request := &models.HBA1CRequest{

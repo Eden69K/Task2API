@@ -6,6 +6,8 @@ type BaseRequest struct {
 	Gender int    `json:"gender"`
 }
 
+//------------------------------------------------------------------------------------------
+
 type HBA1CRequest struct {
 	BaseRequest
 	RDW  float64 `json:"rdw"`

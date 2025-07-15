@@ -2,10 +2,8 @@ package repository
 
 import (
 	"context"
-	//"time"
 
 	"Task2API/pkg/logger"
-	//"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
@@ -13,6 +11,8 @@ type TokenRepository struct {
 	pool   *pgxpool.Pool
 	logger logger.Logger
 }
+
+//------------------------------------------------------------------------------------------
 
 func NewTokenRepository(pool *pgxpool.Pool, logger logger.Logger) *TokenRepository {
 	return &TokenRepository{

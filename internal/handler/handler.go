@@ -25,6 +25,8 @@ func NewHandler(service interfaces.PredictionService, logger logger.Logger) *Han
 	}
 }
 
+//-----------------------------------------------------------------------------------------------
+
 func (h *Handler) PredictHBA1C(w http.ResponseWriter, r *http.Request) {
 	h.handlePrediction(w, r, h.service.PredictHBA1C)
 }
@@ -49,7 +51,11 @@ func (h *Handler) PredictHDL(w http.ResponseWriter, r *http.Request) {
 	h.handlePrediction(w, r, h.service.PredictHDL)
 }
 
+//------------------------------------------------------------------------------------------
+
 type predictionFunc func(context.Context, url.Values) ([]byte, error)
+
+//------------------------------------------------------------------------------------------
 
 func (h *Handler) handlePrediction(w http.ResponseWriter, r *http.Request, fn predictionFunc) {
 	if r.Method != http.MethodGet {
