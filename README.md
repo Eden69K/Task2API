@@ -26,6 +26,32 @@ project/
 ├── README.md               # Документация
 └── config.yml              # Конфигурационный файл
 ```
+### Описание параметров
+### Параметры
+|Параметр|Тип|Описание|
+|-|-|-|
+|age|int|Возраст пациента|
+|gender|int|Пол пациента(0 - мужской, 1 - женский)|
+|rdw|float|Ширина распределения эритроцитов (%)|
+|wbc|float|Лейкоциты (10^9/л)|
+|rbc|float|Эритроциты (10^12/л)|
+|hgb|float|Гемоглобин (г/л)|
+|hct|float|Гематокрит (%)|
+|mcv|float|Средний объем эритроцита (фл)|
+|mch|float|Среднее содержание гемоглобина в эритроците (пг)|
+|mchc|float|Cредняя концентрация гемоглобина в эритроците (г/дл)|
+|plt|float|Тромбоциты (10^9/л)|
+|neu|float|Нейтрофилы (%)|
+|eos|float|Эозинофилы (%)|
+|bas|float|Базофилы (%)|
+|lym|float|Лимфоциты (%)|
+|mon|float|Моноциты (%)|
+|soe|float|Скорость оседания эритроцитов (мм/ч)|
+|chol|float|Холестерин (ммоль/л)|
+|glu|float|Глюкоза (ммоль/л)|
+|hdl|float|Липопротеины высокой плотности (ммоль/л)|
+|tg|float|Триглицериды (ммоль/л)|
+|cpr|float|C-реактивный белок (мг/л)|
 
 ## Функционал
 ### Доступные эндпоинты
@@ -49,4 +75,20 @@ cd Task2API
 ```
 go build -o bin/Task2API cmd/app/main.go
 ./bin/Task2API
+```
+
+## Тестирование
+### Тестирование через Postman
+**Пример запроса**
+```
+GET http://localhost:8080/predict/hba1c
+Headers:
+  Authorization: Bearer {auth_token}
+```
+
+**Health check**
+```
+GET http://localhost:8080/health
+Headers:
+  Authorization: Bearer {auth_token}
 ```
