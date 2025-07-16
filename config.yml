@@ -6,8 +6,8 @@ database:
   app_name: "gateway_prod"
 
 target_api:
-  url: "https://apiml.labhub.online/api/v1"
-  authorization: "Bearer 0l62<EJi/zJx]a?"
+  url: "${TARGET_API_URL}"
+  authorization: "${TARGET_API_AUTH}"
 
 rate_limit:
   requests_per_second: 100
