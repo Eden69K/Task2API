@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"errors"
+	"log"
 	"net/http"
 	"os"
 	"os/signal"
@@ -17,9 +18,14 @@ import (
 	"Task2API/internal/services"
 	"Task2API/pkg/logger"
 	"github.com/jackc/pgx/v5/pgxpool"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	if err := godotenv.Load(); err != nil {
+		log.Println("No .env file found, using environment variables")
+	}
+
 	cfg := config.MustLoadConfig("config.yml")
 
 	log := logger.NewStdLogger()
@@ -32,12 +38,12 @@ func main() {
 
 	dbPool, err := pgxpool.New(context.Background(), cfg.Database.URL)
 	if err != nil {
-		log.Error("Unable to create connection pool: %v", err)
+		log.Error("Unable to create connection pool: %v", cfg.Database.AppName, err)
 		os.Exit(1)
 	}
 	defer dbPool.Close()
 
-	tokenRepo := repository.NewTokenRepository(dbPool, log)
+	tokenRepo := repository.NewTokenRepository(dbPool, cfg.Database.AppName, log)
 
 	rateLimitMiddleware := middleware.NewRateLimitMiddleware(cfg.RateLimit.RequestsPerSecond, log)
 

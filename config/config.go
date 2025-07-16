@@ -13,7 +13,8 @@ type Config struct {
 	} `yaml:"server"`
 
 	Database struct {
-		URL string `yaml:"url"`
+		URL     string `yaml:"url"`
+		AppName string `yaml:"app_name"`
 	} `yaml:"database"`
 
 	TargetAPI struct {
@@ -36,20 +37,19 @@ type Config struct {
 //------------------------------------------------------------------------------------------
 
 func LoadConfig(path string) (*Config, error) {
-	config := &Config{}
-
-	file, err := os.Open(path)
+	data, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
-	defer file.Close()
 
-	d := yaml.NewDecoder(file)
-	if err := d.Decode(&config); err != nil {
+	expanded := os.ExpandEnv(string(data))
+
+	var cfg Config
+	if err := yaml.Unmarshal([]byte(expanded), &cfg); err != nil {
 		return nil, err
 	}
 
-	return config, nil
+	return &cfg, nil
 }
 
 func MustLoadConfig(path string) *Config {
