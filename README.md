@@ -17,7 +17,7 @@
 project/
 ├── cmd/
 │   └── app/
-│       └── main.go          # Точка входа
+│       └── main.go         # Точка входа
 ├── config/
 │   └── config.go           # Конфигурация
 ├── internal/
@@ -29,9 +29,12 @@ project/
 │   └── routes/             # Маршрутизация
 ├── pkg/
 │   └── logger/             # Логирование
+├── release/                # Исполняймые бинарники
+├── scripts                 # Скрипты 
 ├── go.mod                  # Зависимости
 ├── go.sum                  # Зависимости
-├── README.md               # Документация
+├── Dockerfile              # Конфигурация образа
+├── docker-compose.yml      # Оркестрация сервисов
 ├── .env                    # Файл окружения
 └── config.yml              # Конфигурационный файл
 ```
@@ -80,11 +83,30 @@ cd Task2API
 ```
 
 ## Запуск
+### Запуск через docker
 ```
-go build -o bin/Task2API cmd/app/main.go
-./bin/Task2API
+docker-compose up -d --build
 ```
-
+### Бинарные сборки
+#### Windows
+**Запуск**
+```
+./release/windows/api-gateway.exe
+```
+**Создание исполняемого файла(если он отсуствует)**
+```
+./scripts/buildwin.ps1
+```
+#### Linux
+**Запуск**
+```
+./release/linux/api-gateway
+```
+**Создание исполняемого файла(если он отсуствует)**
+```
+chmod +x ./scripts/buildwin.sh
+./scripts/buildwin.sh
+```
 ## Тестирование
 ### Тестирование через Postman
 **Пример запроса**
