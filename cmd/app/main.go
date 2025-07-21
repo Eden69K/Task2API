@@ -26,7 +26,7 @@ func main() {
 		log.Println("No .env file found, using environment variables")
 	}
 
-	cfg := config.MustLoadConfig("config.yml")
+	cfg := config.MustLoadConfig("./config.yml")
 
 	log := logger.NewStdLogger()
 	logger.ConfigureFileLogger(log,

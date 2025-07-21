@@ -1,0 +1,19 @@
+server:
+  port: "${APP_PORT}"
+
+database:
+  url: "${DB_URL}"
+  app_name: "gateway_prod"
+
+target_api:
+  url: "${TARGET_API_URL}"
+  authorization: "${TARGET_API_AUTH}"
+
+rate_limit:
+  requests_per_second: 100
+
+logging:
+  filename: "logs/app.log"
+  max_size_mb: 10
+  max_backups: 5
+  max_age_days: 30
