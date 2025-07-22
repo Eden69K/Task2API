@@ -100,6 +100,7 @@ docker-compose up -d --build
 #### Linux
 **Запуск**
 ```
+chmod +x ./release/linux/api-gateway
 ./release/linux/api-gateway
 ```
 **Создание исполняемого файла(если он отсуствует)**
