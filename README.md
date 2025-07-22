@@ -104,8 +104,8 @@ docker-compose up -d --build
 ```
 **Создание исполняемого файла(если он отсуствует)**
 ```
-chmod +x ./scripts/buildwin.sh
-./scripts/buildwin.sh
+chmod +x ./scripts/buildlin.sh
+./scripts/buildlin.sh
 ```
 ## Тестирование
 ### Тестирование через Postman
